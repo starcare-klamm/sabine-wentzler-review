@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-  <meta name="robots" content="noindex, nofollow" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CRM Praxis · Sabine Wentzler (Prototyp)</title>
@@ -14,40 +13,29 @@
     <link rel="stylesheet" href="css/crm.css" />
   </head>
   <body>
-
-    <div id="accessGate" style="position:fixed;inset:0;z-index:9999;background:#f7f3ee;display:flex;align-items:center;justify-content:center;padding:1.5rem">
-      <form id="accessForm" style="max-width:22rem;width:100%;background:#fff;border:1px solid #e4dcd3;border-radius:14px;padding:1.4rem 1.3rem;font-family:inherit">
-        <p style="margin:0 0 .35rem;font-weight:600">CRM-Prototyp · Zugang</p>
-        <p style="margin:0 0 1rem;color:#6b5e56;font-size:.95rem">Bitte Zugangscode eingeben (Demo, keine echten Daten).</p>
-        <input id="accessCode" type="password" autocomplete="current-password" placeholder="Zugangscode" style="width:100%;box-sizing:border-box;padding:.65rem .75rem;border:1px solid #e4dcd3;border-radius:8px;margin-bottom:.75rem" />
-        <button type="submit" style="width:100%;padding:.7rem;border:0;border-radius:8px;background:#8b4a3a;color:#fff;font-weight:600;cursor:pointer">Öffnen</button>
-        <p id="accessErr" style="display:none;color:#a33;font-size:.9rem;margin:.75rem 0 0">Code nicht erkannt.</p>
+    <div id="crm-gate" class="crm-gate" hidden>
+      <form id="crm-gate-form" class="crm-gate-card" autocomplete="current-password">
+        <p class="crm-gate-brand">Sabine Wentzler</p>
+        <h1>Praxis CRM · Demo</h1>
+        <p class="crm-gate-hint">
+          Interner Zugang — bitte Passwort aus der Zugangskarte eingeben.
+          Demo-Daten, kein echtes Patienten-Backend.
+        </p>
+        <label class="crm-gate-label" for="crm-gate-pass">Passwort</label>
+        <input
+          id="crm-gate-pass"
+          name="password"
+          type="password"
+          required
+          autofocus
+          autocomplete="current-password"
+        />
+        <p id="crm-gate-err" class="crm-gate-err" hidden>Passwort nicht korrekt.</p>
+        <button type="submit">Öffnen</button>
       </form>
     </div>
-    <script>
-      (function () {
-        var KEY = "sw_crm_gate_ok";
-        var CODE = "praxis-demo";
-        var gate = document.getElementById("accessGate");
-        if (sessionStorage.getItem(KEY) === "1") {
-          if (gate) gate.remove();
-          return;
-        }
-        document.getElementById("accessForm").addEventListener("submit", function (e) {
-          e.preventDefault();
-          var v = (document.getElementById("accessCode").value || "").trim();
-          if (v === CODE) {
-            sessionStorage.setItem(KEY, "1");
-            gate.remove();
-          } else {
-            document.getElementById("accessErr").style.display = "block";
-          }
-        });
-      })();
-    </script>
-
     <div class="proto-banner">
-      <strong>UI-Prototyp</strong> — Demo-Daten, kein Login, kein Backend · nicht produktiv
+      <strong>UI-Prototyp</strong> — Demo-Daten · leichtes Passwort-Gate · kein Backend · nicht produktiv
     </div>
     <div class="app">
       <aside class="sidebar">
@@ -87,6 +75,7 @@
       <main class="main" id="content"></main>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="js/gate.js"></script>
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
   </body>

@@ -63,6 +63,96 @@ a {
   text-decoration: none;
 }
 
+/* Light client-side gate (demo only — not real auth) */
+html.gate-locked body > :not(#crm-gate) {
+  display: none !important;
+}
+
+.crm-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(216, 120, 108, 0.12), transparent 50%),
+    var(--paper-warm);
+}
+
+.crm-gate-card {
+  width: min(100%, 22rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem 1.5rem;
+}
+
+.crm-gate-brand {
+  font-family: var(--font-display);
+  color: var(--heading);
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.crm-gate-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.crm-gate-hint {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.crm-gate-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.crm-gate-card input[type="password"] {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-warm);
+  margin-bottom: 0.75rem;
+}
+
+.crm-gate-card input[type="password"]:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.crm-gate-err {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin: -0.35rem 0 0.75rem;
+}
+
+.crm-gate-card button[type="submit"] {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+
+.crm-gate-card button[type="submit"]:hover {
+  background: var(--accent-strong);
+}
+
 /* Proto banner */
 .proto-banner {
   background: var(--heading);
