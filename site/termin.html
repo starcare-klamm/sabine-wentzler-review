@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Termin — Sabine Wentzler</title>
+  <meta name="description" content="Online Termin anfragen bei Sabine Wentzler — München Hubertuspalais und Tutzing." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="site-kind" content="other" />
+  <meta name="page-type" content="service" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="page-termin page-inner">
+  <div class="proto-banner">Prototype-Buchung · sendet keine Daten · Kalender folgt nach Freigabe</div>
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+
+  <header class="site-header is-solid" id="siteHeader">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="assets/logo-mandala.png" alt="" width="40" height="40" />
+      <span class="logo-text">Sabine Wentzler<span>Physiotherapie – Körperarbeit</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="siteNav" aria-label="Hauptnavigation">
+      <a href="methode.html">Methode</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="termin.html">Termin</a>
+      <a href="kurse.html">Kurse</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="nav-cta" href="termin.html">Online Termin</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-media" aria-hidden="true">
+        <img src="assets/startbild.jpg" alt="" width="2189" height="968" style="object-position:40% 18%" />
+        <div class="page-hero-veil"></div>
+      </div>
+      <div class="page-hero-content">
+        <p class="crumb"><a href="index.html">Start</a><span>/</span>Termin</p>
+        <h1 id="page-title">Online Termin</h1>
+        <p class="page-hero-lead">Wunschtermin wählen — Bestätigung per E-Mail. Bei Unsicherheit schreiben Sie mir gerne über WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="page-body">
+      <div class="booking-shell">
+        <div class="booking-steps reveal">
+          <h2 class="section-title" style="max-width:none;color:var(--heading);margin-bottom:1.25rem">Ablauf</h2>
+          <div class="booking-step">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Standort &amp; Format</h3>
+              <p>Hubertuspalais München oder Praxis Tutzing. Dauer je nach Anliegen.</p>
+            </div>
+          </div>
+          <div class="booking-step">
+            <span class="step-num">02</span>
+            <div>
+              <h3>Zeit wählen</h3>
+              <p>Nur freie Fenster. Später: Umbuchen-Link in der Bestätigungsmail.</p>
+            </div>
+          </div>
+          <div class="booking-step">
+            <span class="step-num">03</span>
+            <div>
+              <h3>Angaben &amp; Bestätigung</h3>
+              <p>Name, E-Mail, optionale Kurznotiz. Keine ausführlichen Gesundheitsdaten in diesem Formular.</p>
+            </div>
+          </div>
+          <div class="booking-step">
+            <span class="step-num">04</span>
+            <div>
+              <h3>Erinnerung</h3>
+              <p>Automatische Erinnerung vor dem Termin. Absage bitte frühzeitig.</p>
+            </div>
+          </div>
+          <p style="margin-top:1rem">
+            <a class="btn btn-outline" href="https://wa.me/498917117412?text=Guten%20Tag%20Frau%20Wentzler%2C%20zum%20Online-Termin%20habe%20ich%20eine%20Frage." target="_blank" rel="noopener noreferrer">Stattdessen WhatsApp</a>
+          </p>
+        </div>
+
+        <form class="booking-panel reveal" id="bookingMock" action="#" method="get">
+          <label for="location">Standort</label>
+          <select id="location" name="location">
+            <option>München · Hubertusstr. 1a</option>
+            <option>Tutzing · Pommernstr. 4</option>
+          </select>
+
+          <label for="duration">Behandlungsdauer</label>
+          <select id="duration" name="duration">
+            <option>45 Min · Erwachsene · 90 EUR</option>
+            <option selected>60 Min · Erwachsene · 120 EUR</option>
+            <option>60 Min · Kinder · 90 EUR</option>
+          </select>
+
+          <label>Beispiel-Slots</label>
+          <div class="slot-row" role="group" aria-label="Beispiel-Zeitfenster">
+            <button type="button" class="slot is-selected">Di · 10:00</button>
+            <button type="button" class="slot">Di · 14:30</button>
+            <button type="button" class="slot">Mi · 11:00</button>
+            <button type="button" class="slot">Do · 09:30</button>
+            <button type="button" class="slot">Do · 16:00</button>
+          </div>
+
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Vor- und Nachname" autocomplete="name" />
+
+          <label for="email">E-Mail</label>
+          <input id="email" name="email" type="email" required placeholder="name@beispiel.de" autocomplete="email" />
+
+          <label for="phone">Telefon (optional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="+49 …" autocomplete="tel" />
+
+          <label for="note">Kurznotiz (optional)</label>
+          <input id="note" name="note" type="text" placeholder="z. B. Neupatientin · bevorzugter Fokus" maxlength="120" />
+
+          <button class="btn btn-dark" type="submit">Anfrage senden (Demo)</button>
+          <p class="booking-note">Keine Speicherung, kein Versand. Später: Anbindung an Kalender + CRM laut Architektur-Dokument.</p>
+          <p class="booking-note">Hilfsweise: <a href="mailto:praxis@sabinewentzler.de?subject=Terminanfrage">praxis@sabinewentzler.de</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© Sabine Wentzler · Prototype Demo · kein Live-Impressum</p>
+      <p class="footer-nav">
+        <a href="index.html">Start</a>
+        <a href="methode.html">Methode</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

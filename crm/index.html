@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+  <meta name="robots" content="noindex, nofollow" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRM Praxis · Sabine Wentzler (Prototyp)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Source+Sans+3:wght@400;550;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/crm.css" />
+  </head>
+  <body>
+
+    <div id="accessGate" style="position:fixed;inset:0;z-index:9999;background:#f7f3ee;display:flex;align-items:center;justify-content:center;padding:1.5rem">
+      <form id="accessForm" style="max-width:22rem;width:100%;background:#fff;border:1px solid #e4dcd3;border-radius:14px;padding:1.4rem 1.3rem;font-family:inherit">
+        <p style="margin:0 0 .35rem;font-weight:600">CRM-Prototyp · Zugang</p>
+        <p style="margin:0 0 1rem;color:#6b5e56;font-size:.95rem">Bitte Zugangscode eingeben (Demo, keine echten Daten).</p>
+        <input id="accessCode" type="password" autocomplete="current-password" placeholder="Zugangscode" style="width:100%;box-sizing:border-box;padding:.65rem .75rem;border:1px solid #e4dcd3;border-radius:8px;margin-bottom:.75rem" />
+        <button type="submit" style="width:100%;padding:.7rem;border:0;border-radius:8px;background:#8b4a3a;color:#fff;font-weight:600;cursor:pointer">Öffnen</button>
+        <p id="accessErr" style="display:none;color:#a33;font-size:.9rem;margin:.75rem 0 0">Code nicht erkannt.</p>
+      </form>
+    </div>
+    <script>
+      (function () {
+        var KEY = "sw_crm_gate_ok";
+        var CODE = "praxis-demo";
+        var gate = document.getElementById("accessGate");
+        if (sessionStorage.getItem(KEY) === "1") {
+          if (gate) gate.remove();
+          return;
+        }
+        document.getElementById("accessForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var v = (document.getElementById("accessCode").value || "").trim();
+          if (v === CODE) {
+            sessionStorage.setItem(KEY, "1");
+            gate.remove();
+          } else {
+            document.getElementById("accessErr").style.display = "block";
+          }
+        });
+      })();
+    </script>
+
+    <div class="proto-banner">
+      <strong>UI-Prototyp</strong> — Demo-Daten, kein Login, kein Backend · nicht produktiv
+    </div>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">Sabine Wentzler</div>
+          <div class="brand-sub">Physiotherapie – Körperarbeit</div>
+          <span class="brand-badge">Praxis CRM · Demo</span>
+        </div>
+        <nav class="nav" aria-label="Hauptnavigation">
+          <button type="button" class="nav-item is-active" data-view="overview">
+            <span class="nav-icon">◈</span> Übersicht
+          </button>
+          <button type="button" class="nav-item" data-view="kontakte">
+            <span class="nav-icon">◎</span> Kontakte
+          </button>
+          <button type="button" class="nav-item" data-view="termine">
+            <span class="nav-icon">◷</span> Termine
+          </button>
+          <button type="button" class="nav-item" data-view="katalog">
+            <span class="nav-icon">☰</span> Katalog
+          </button>
+          <button type="button" class="nav-item" data-view="rechnungen">
+            <span class="nav-icon">▤</span> Rechnungen
+          </button>
+          <button type="button" class="nav-item" data-view="zahlungen">
+            <span class="nav-icon">€</span> Zahlungen
+          </button>
+          <button type="button" class="nav-item" data-view="waitlist">
+            <span class="nav-icon">◌</span> Waitlist
+          </button>
+        </nav>
+        <div class="sidebar-foot">
+          Ops UI · coral/cream<br />
+          Plan: штаб/ops/crm-plan.md
+        </div>
+      </aside>
+      <main class="main" id="content"></main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
